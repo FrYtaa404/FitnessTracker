@@ -1,5 +1,6 @@
 ﻿Laboratorium I - Organizacja | Relacje w JPA
 
+0. Zainstaluj Plugin Lombok
 1. Zsynchronizuj swoje repozytorium z repozytorium prowadzącego (Sync Fork bądź Pull z repozytorium prowadzącego). Można
    wykonać to bezpośrednio w GitHubie lub lokalnie. OK
 2. Zapoznaj sie ze strukturą projektu - nazwy pakietów, encje, enumy. Zwróć uwagę na application.properties w resources.
