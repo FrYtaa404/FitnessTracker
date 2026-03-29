@@ -27,6 +27,13 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
+    @Column(nullable = false)
+    private String firsName;
+
+    @Column(nullable = false)
+    private String lastName;
+
+
     public User(
             final String firstName,
             final String lastName,
