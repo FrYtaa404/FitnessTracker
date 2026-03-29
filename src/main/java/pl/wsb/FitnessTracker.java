@@ -14,6 +14,6 @@ public class FitnessTracker {
         SpringApplication.run(FitnessTracker.class, args);
     }
 
-    //Chuj
+
 
 }
