@@ -8,7 +8,7 @@ import pl.wsb.fitnesstracker.training.api.Training;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "workout_sessions")
+@Table(name = "workout_session")
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class WorkoutSession {

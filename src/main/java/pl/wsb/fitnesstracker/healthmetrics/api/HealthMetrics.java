@@ -1,5 +1,7 @@
 package pl.wsb.fitnesstracker.healthmetrics.api;
 
+
+
 import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -34,7 +36,7 @@ public class HealthMetrics {
     @Column(nullable = false)
     private Double height;
 
-    @Column(nullable = false)
+    @Column(name = "heartRate",nullable = false)
     private Double heartRate;
 
     public HealthMetrics(Long id, User user, Date date, Double weight, Double height, Double heartRate) {

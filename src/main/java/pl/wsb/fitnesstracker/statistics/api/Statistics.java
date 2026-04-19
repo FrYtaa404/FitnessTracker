@@ -2,8 +2,8 @@ package pl.wsb.fitnesstracker.statistics.api;
 
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import pl.wsb.fitnesstracker.user.api.User;
@@ -24,13 +24,13 @@ public class Statistics {
     @JoinColumn(name = "user_id", nullable = false, unique = true)
     private User user;
 
-    @Column(name = "total_trainings", nullable = false)
+    @Column(nullable = false)
     private int totalTrainings;
 
-    @Column(name = "total_distance", nullable = false)
+    @Column(nullable = false)
     private double totalDistance;
 
-    @Column(name = "total_calories_burned", nullable = false)
+    @Column(nullable = false)
     private int totalCaloriesBurned;
 
     public Statistics(User user, int totalTrainings, double totalDistance, int totalCaloriesBurned) {
