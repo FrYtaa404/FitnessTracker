@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import pl.wsb.fitnesstracker.user.internal.UserRepository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -80,6 +81,14 @@ class Lab03EntitiesTest {
             assertThat(cols).contains("id", "training_id");
         }
     }
+    @Autowired
+    UserRepository userRepository;
+    @Test
+    void testUserRepo(){
+       var users = userRepository.findByDomain("@domain.com");
+        System.out.printf("Liczbazytkownków:" + users.size());
+    }
+
 
     private boolean tableExists(Connection conn, String expectedName) throws SQLException {
         DatabaseMetaData meta = conn.getMetaData();
@@ -116,3 +125,4 @@ class Lab03EntitiesTest {
         return cols;
     }
 }
+

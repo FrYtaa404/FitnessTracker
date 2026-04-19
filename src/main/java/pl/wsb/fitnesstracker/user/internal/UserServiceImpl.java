@@ -41,4 +41,5 @@ class UserServiceImpl implements UserService, UserProvider {
         return userRepository.findAll();
     }
 
+    public List<User> findUserByDomain(String domain){ return userRepository.findByDomain(domain);}
 }
