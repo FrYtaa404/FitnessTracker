@@ -43,3 +43,12 @@ class UserController {
 
 
 }
+
+
+@GetMapping("/simple")
+public List<UserDtoSimple> getUsersSimple() throws InterruptedException {
+
+    return this.userProvider.findAllUsers().stream()
+            .map(this.userMapper::toUserDtoSimple)
+            .toList();
+}
