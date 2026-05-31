@@ -72,5 +72,27 @@ class UserController {
         return userMapper.toUserDto(userOptional.get());
     }
 
+    @GetMapping("/email")
+    public List<UserDto> getUserDetailByEmail(@RequestParam String email) throws InterruptedException, UserKeyException {
+
+        return userProvider.findAllUsers()
+                .stream()
+                .filter(user -> user.getEmail().equals(email))
+                .map(userMapper::toUserDto)
+                .toList();
+    }
+
+    @GetMapping("/older/{localDate}")
+    public List<UserDto> getUsersOlderThan(@PathVariable LocalDate localDate) throws InterruptedException, UserKeyException, UserNotFoundException {
+
+        return userProvider.findAllUsers()
+                .stream()
+                .filter(user -> user.getBirthdate().isBefore(localDate))
+                .map(userMapper::toUserDto)
+                .toList();
+    }
+
+
+
 
 }
