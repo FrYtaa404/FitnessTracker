@@ -47,5 +47,13 @@ public class User {
         this.birthdate = birthdate;
         this.email = email;
     }
+    //Krzychu - 1
+     public boolean copyId(User user){
+
+        if(user == null || user.getId() == null || user.getId() <= 0L) return false;
+
+        this.id = user.getId();
+        return true;
+     }
 
 }

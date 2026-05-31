@@ -13,5 +13,7 @@ public interface UserService {
      * @return The created user
      */
     User createUser(User user);
+    User updateUser(User user);
+    void deleteUser(User user);
 
-}
+} // Fryta
