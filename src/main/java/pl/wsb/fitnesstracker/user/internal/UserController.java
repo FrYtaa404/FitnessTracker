@@ -92,6 +92,37 @@ class UserController {
                 .toList();
     }
 
+    @PutMapping("/{id}")
+    public UserDto updateUser(@RequestBody UserDto userDto, @PathVariable Long id) throws InterruptedException, UserKeyException, UserNotFoundException {
+
+        if (userDto == null || id == null || id <= 0L)
+            throw new UserKeyException("User update request body is empty or id is not specified");
+
+        var userOptional = userProvider.getUser(id);
+
+        if (userOptional.isEmpty()) throw new UserNotFoundException(id);
+
+        var user = userMapper.toUser(userDto);
+
+        user.copyId(userOptional.get());
+        user = userService.updateUser(user);
+
+        return userMapper.toUserDto(user);
+    }
+
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deleteUser(@PathVariable Long id) {
+        if (id <= 0L) throw new UserKeyException("Invalid id value: " + id);
+
+        var userOptional = userProvider.getUser(id);
+
+        if (userOptional.isEmpty()) throw new UserNotFoundException(id);
+
+        userService.deleteUser(userOptional.get());
+
+    }
+
 
 
 
